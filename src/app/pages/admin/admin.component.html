@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <form class="form-signin">
+    <h2>Please login</h2>
+    <div class="form-group">
+      <input
+        type="email"
+        [(ngModel)]="username"
+        class="form-control"
+        name="email"
+        placeholder="Email Address@gmail.com"
+        required
+      />
+    </div>
+    <input
+      [(ngModel)]="password"
+      type="password"
+      class="form-control"
+      name="password"
+      placeholder="Password"
+      minlength="8"
+      maxlength="35"
+      required
+    />
+    <br />
+    <button (click)="onLogin()" class="btn btn-lg btn-primary btn-block">
+      Login
+    </button>
+  </form>
+</div>

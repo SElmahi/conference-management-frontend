@@ -1,0 +1,31 @@
+<h1>MODIFY CONTENT</h1>
+<div class="position">
+  <select [(ngModel)]="pageSelected" (change)="afficheContent()">
+    <option
+      placeholder="Email Address@gmail.com"
+      *ngFor="let page of pages"
+      [value]="page"
+    >
+      -{{ page }}
+    </option>
+  </select>
+</div>
+<div>
+  <ckeditor
+    [editor]="Editor"
+    (ready)="onReady($event)"
+    (change)="onChange($event)"
+    [data]="contentAffiche"
+    (ready)="onReady($event)"
+  >
+  </ckeditor>
+  <div class="position">
+    <button (click)="save()">save</button>
+  </div>
+</div>
+<h1>MANAGES SUBMISSION</h1>
+<h1>IMAGE</h1>
+<label for="logo">logo :</label>
+<input type="file" [(ngModel)]="logo" id="photo" name="photo" />
+<button (click)="saveImage()">save Image</button>
+

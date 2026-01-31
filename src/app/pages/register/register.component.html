@@ -1,0 +1,88 @@
+<div><h1>REGISTRATION</h1></div>
+<div><table>
+    <thead>
+      <tr>
+        <th>Registration</th>
+        <th>Fees</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Full registration</td>
+        <td>$500</td>
+      </tr>
+      <tr>
+        <td>Student registration</td>
+        <td>$250</td>
+      </tr>
+      <tr>
+        <td>One-day registration</td>
+        <td>$150</td>
+      </tr>
+      <tr>
+        <td>Workshop registration</td>
+        <td>$100</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div>
+
+  </div>
+ 
+  <router-outlet></router-outlet>
+  <div class="form-container">
+    <form [formGroup]="submitForm" (ngSubmit)="onSubmit()">
+      <h2>ATTENDEES</h2>
+    <div class="form-group">
+      <label for="name">First name :</label><br>
+      <input type="text" class="form-control" id="name" formControlName="name">
+      <div *ngIf="submitForm.get('name').invalid && submitForm.get('name').touched" class="error-message">
+        First name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="familyName">Last name :</label><br>
+      <input type="text" class="form-control" id="familyName" formControlName="familyName">
+      <div *ngIf="submitForm.get('familyName').invalid && submitForm.get('familyName').touched" class="error-message">
+        Last name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email :</label><br>
+      <input type="email" class="form-control" id="email" formControlName="email">
+      <div *ngIf="submitForm.get('email').invalid && submitForm.get('email').touched" class="error-message">
+        <span *ngIf="submitForm.get('email').errors?.required">Email is required.</span>
+        <span *ngIf="submitForm.get('email').errors?.email">Invalid email format.</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="payment">Payment :</label><br>
+      <input type="file" id="payment" name="payment" (change)="onFileSelected($event.target.files)" accept=".pdf">
+      <div *ngIf="submitForm.hasError('fileNotSelected') && submitForm.touched" class="error-message">
+        Payment file is required.
+      </div>
+    </div>
+    <button type="submit" [disabled]="isSubmitting || submitForm.invalid">
+      {{ isSubmitting ? 'Submitting...' : 'Submit' }}
+    </button>
+  </form>
+  <form>
+    <h2>AUTHORS</h2>
+    <div class="form-group">
+      <label>Id Submission :</label><br />
+      <input
+        type="text"
+        class="form-control"
+        id="Id Submission"
+        name="Id Submission"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Payment :</label><br />
+      <input type="file" accept=".pdf" id="photo" name="photo" />
+    </div>
+    <button type="submit">send</button>
+  </form>
+  </div>

@@ -1,0 +1,60 @@
+:host {
+  font-family: "Roboto", sans-serif;
+  color: #3c3c3c;
+}
+h1 {
+  text-align: center;
+  color: #0a2647;
+  border-bottom: 3px solid #0a2647;
+  padding-bottom: 0.5rem;
+  font-family: "Arial", sans-serif;
+}
+h2 {
+  text-align: center;
+}
+
+p {
+  margin-right: 7%;
+  margin-left: 7%;
+  margin-top: 3%;
+  text-align: left;
+
+  font-size: 18px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+.content {
+  margin-right: 5%;
+  padding: auto;
+}
+
+.comment {
+  text-align: center;
+  font-size: 17px;
+  color: #4d4d4d;
+}
+
+.part {
+  padding: auto;
+}
+ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+img {
+  width: 100px;
+  height: 60px;
+  margin: 10px;
+}
+
+@media (max-width: 946px) {
+  .photo-list li {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  ul {
+    display: block;
+  }
+}
